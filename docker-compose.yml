@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bearplus:
+    build:
+      context: .
+    container_name: "bearplus"
+    ports:
+      - "6565:6565"
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+    restart: always
+    command: npm run start
